@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mobile Doctor</title>
+</head>
+<body>
+<h1>Mobile Doctor - questions</h1>
+{% for question in questions %}
+<div>
+    <h2>{{question.question }}</h2>
+    <p>{{ question.answer }}</p>
+</div>
+{% endfor %}
+</body>
+</html>
