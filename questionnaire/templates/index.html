@@ -1,16 +1,43 @@
 <!DOCTYPE html>
+{% load bootstrap3 %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mobile Doctor</title>
+    <title>{% block bootstrap3_title %}django-bootstrap3 template title{% endblock %}</title>
 </head>
 <body>
 <h1>Mobile Doctor - questions</h1>
+{% bootstrap_css %}
+{% block bootstrap3_content %}django-bootstrap3 template content{% endblock %}
+{% if not 'javascript_in_head'|bootstrap_setting %}{% bootstrap_javascript jquery=True %}{% endif %}
+{% block bootstrap3_extra_script %}{% endblock %}
+
 {% for question in questions %}
-<div>
-    <h2>{{question.question }}</h2>
-    <p>{{ question.answer }}</p>
-</div>
+<form >
+    <div class="row">
+        <!--<div class="col-sm-9"><h3><span class="label label-default">{{ question.question }}</span></h3></div>-->
+        <div class="col-sm-9"><h2>{{ question.question }}</h2></div><br>
+        <div class="col-sm-9">
+            <div  >
+                <label >
+                    <input type="radio" id="q128" name="quality[21]" value={{ question.answer1 }} /> {{ question.answer1 }}
+                </label><br>
+                <label >
+                    <input type="radio" id="q129" name="quality[21]" value= {{ question.answer2 }} /> {{ question.answer2 }}
+                </label><br>
+                <label >
+                    <input type="radio" id="q130" name="quality[21]" value= {{ question.answer3 }} /> {{ question.answer3 }}
+                </label><br>
+                <label >
+                    <input type="radio" id="q131" name="quality[21]" value= {{ question.answer4 }} /> {{ question.answer4 }}
+                </label><br>
+            </div>
+        </div>
+    </div>
+    <br>
+    <input type="submit" class="btn btn-success" value="Submit answer"></input>
+</form>
 {% endfor %}
+
 </body>
 </html>

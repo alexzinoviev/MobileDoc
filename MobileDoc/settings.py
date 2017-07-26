@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'questionnaire.apps.QuestionnaireConfig',
+    'answers.apps.AnswersConfig',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [

@@ -5,7 +5,7 @@ from .models import Questionnaire
 
 @admin.register(Questionnaire)
 class QuestionAdmin(admin.ModelAdmin):
-    list_display = ('question', 'answer')
+    list_display = ('question', 'category')
 
 #admin.site.register(Questionnaire, QuestionAdmin)
 
