@@ -12,8 +12,18 @@
 {% if not 'javascript_in_head'|bootstrap_setting %}{% bootstrap_javascript jquery=True %}{% endif %}
 {% block bootstrap3_extra_script %}{% endblock %}
 
+
+
+
 {% for question in questions %}
-<form >
+<form method="post">
+    {{ form.as_p }}
+    {%csrf_token%}
+    <input type="submit" value="Ok">
+</form>
+
+<form action = "/ttt/" method="post">
+    {% csrf_token %}
     <div class="row">
         <!--<div class="col-sm-9"><h3><span class="label label-default">{{ question.question }}</span></h3></div>-->
         <div class="col-sm-9"><h2>{{ question.question }}</h2></div><br>
